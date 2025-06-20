@@ -1,0 +1,14 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+package_reboot_if_required: false
+
+packages:
+  - libsdl2-2.0-0
+  - wget
+  - unzip
+  - apt-utils
+  - ca-certificates
+
+runcmd:
+  - curl -sSL https://raw.githubusercontent.com/dillfrescott/deploy-nzp-server/refs/heads/main/deploynzp.sh | NZP_RCON_PASSWORD=password_here bash -s
